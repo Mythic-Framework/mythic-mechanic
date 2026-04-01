@@ -10,6 +10,7 @@ function RetrieveComponents()
 	Inventory = exports["mythic-base"]:FetchComponent("Inventory")
 	Crafting = exports["mythic-base"]:FetchComponent("Crafting")
 	Vehicles = exports["mythic-base"]:FetchComponent("Vehicles")
+	Version = exports["mythic-base"]:FetchComponent("Version")
 end
 
 AddEventHandler("Core:Shared:Ready", function()
@@ -24,6 +25,7 @@ AddEventHandler("Core:Shared:Ready", function()
 		"Inventory",
 		"Crafting",
 		"Vehicles",
+		"Version",
 	}, function(error)
 		if #error > 0 then
 			return
@@ -56,6 +58,8 @@ AddEventHandler("Core:Shared:Ready", function()
 				end
 			end
 		end
+
+		Version:Check('Mythic-Framework/Mythic-VersionCheckers', GetCurrentResourceName())
 	end)
 end)
 
